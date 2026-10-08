@@ -1,0 +1,60 @@
+[build-system]
+requires = ["setuptools>=61.0", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "phd-ultra-remote-control"
+version = "1.0.0"
+description = "PyQt6 GUI Remote Control Application for Harvard Apparatus PHD Ultra 70-3xxx Syringe Pumps"
+readme = "README.md"
+requires-python = ">=3.9"
+license = { text = "MIT" }
+authors = [
+    { name = "Xueyong Lu" }
+]
+keywords = [
+    "harvard-apparatus",
+    "phd-ultra",
+    "syringe-pump",
+    "pyqt6",
+    "serial-communication",
+    "laboratory-automation",
+    "gui"
+]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "Intended Audience :: Science/Research",
+    "Topic :: Scientific/Engineering :: Interface Engine/Protocol Translator",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Operating System :: Microsoft :: Windows",
+]
+dependencies = [
+    "PyQt6>=6.4.0",
+    "pyserial>=3.5",
+    "numpy>=1.22.0",
+    "matplotlib>=3.6.0",
+    "global-hotkeys>=0.1.0; sys_platform == 'win32'",
+]
+
+[project.urls]
+Homepage = "https://github.com/xylu2024/PHD-Ultra-Series-Remote-Control-GUI-PyQt6-"
+Repository = "https://github.com/xylu2024/PHD-Ultra-Series-Remote-Control-GUI-PyQt6-"
+
+[project.scripts]
+phd-ultra-gui = "main:main"
+
+[tool.setuptools]
+py-modules = [
+    "main",
+    "functions",
+    "resources_rc",
+    "RemoteControl_main_UI",
+    "PortSetup_child_UI",
+    "StepGuide_child_UI",
+    "UserDefinedSteps_child_UI"
+]
+packages = ["settings"]

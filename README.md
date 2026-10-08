@@ -1,144 +1,236 @@
-# Short Introduction
+# Harvard Apparatus PHD Ultra Series Remote Control GUI
+
+[![Python 3.10+](https://img.shields.io/badge/python-3.10%2B-blue.svg)](https://www.python.org/)
+[![PyQt6](https://img.shields.io/badge/GUI-PyQt6-green.svg)](https://www.riverbankcomputing.com/software/pyqt/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](LICENSE)
+[![Hardware](https://img.shields.io/badge/Hardware-Harvard%20PHD%20Ultra%2070--3xxx-orange.svg)](https://www.harvardapparatus.com/)
+
+A modern, thread-safe desktop application written in **Python** and **PyQt6** for remote serial control and real-time monitoring of **Harvard Apparatus PHD Ultra 70-3xxx Series** syringe pumps.
+
+---
+
+## Table of Contents
 
-This project is specifically developed for PHD Ultra 70-3xx series syringe pumps based on python-PyQt6 graphical user interface. 
-
-&#x2611; The program supports basic Quick Start Mode and Custom Method Mode
-
-&#x2611; Provides basic serial port operations
-
-&#x2611; Reads and dynamically draws returned data in real-time
-
-
-
-# ~~Week 1~~
-
-&#x2611; With `TKinter-Framework`
-
-![iKn2qk.png](https://i.328888.xyz/2023/04/29/iKn2qk.png)
-
-&#x2611; Überprüfung der seriellen Portverbindung
-
-&#x2611; Betriebsart auswählen
-
-&#x2611; Auswählen Spritzentypen aus der Bibliothek
-
-&#x2611; Eingaben der Durchflussparameter und Überprüfung der Gültigkeit
-
-&#x2611; Definieren/exportieren/importieren einer neuen Betriebsmethode mit mehreren Schritten
-
-
-
-# Week 2
-
-&#x2611;  Optimierung des Definitionsvorgangs der Schritte von *User defined method*
-
-![iKnb7p.png](https://i.328888.xyz/2023/04/29/iKnb7p.png)
-
-&#x2611;  Standardisierung der Dateiformat von Import und Export der Benutzer definierten Methoden（``.json``）
-
-&#x2611;  Ermöglicht die Detektion der Verbindungszustände von seriellen Schnittstellen：
-
-* Echtzeiterkennung des Verbindungsstatus der seriellen Schnittstelle und Anzeige in der Statusleiste in verschiedenen Farben
-
-![iEqiUL.png](https://i.328888.xyz/2023/04/17/iEqiUL.png)
-
-&#x2611;  Wechsel verschiedener seriellen Ports durch Auswahl aus Dropdown-Menü, keine Schließen aktuellen Ports erforderlich
-
-* Problem：Nach einem Ausschalten wird die Portswechsel aus Dropdown-Menü nicht möglich sein.
-
-
-
-# Week 3
-
-## Achieved
-
-&#x2611; Added the allowable flow range to adapt to different syringes, and quick set the *min./max.* value
-
-![iSxgXq.png](https://i.328888.xyz/2023/04/24/iSxgXq.png)
-
-&#x2611; Varifying the value entered by the user
-
-&#x2611; Threads for writing and reading serial ports were added
-
-&#x2611; The instance `self.ser` in the detection thread is shared among the three class instances to realize asynchronous operations to avoid data competition and improve the speed and stability of program response
-
-&#x2611; Write different commands again to it by identifying different suffixes when reading data from the serial port
-
-## To do
-
- &#x2794; ~~Post-processing the returned data *(graphical display  of Flow rate over time)*, including `irate/wrate`, `crate`, `ivolume/wvolume`, `itime/wtime`~~
-
- &#x2794; ~~To complete the parsing of advanced commands *(Custom Methods)*~~
-
-
-
-# Week 4
-
-&#x2611; Fixed the bug that automatic connection cannot be realized through configuration parameters after connection failure and reconnection
-
-&#x2611; Optimized UI layout and size adjustment in response to scaling
-
-&#x2611; Improved theme switching feature and fixed several bugs
-
-&#x2611; Optimized font display
-
-&#x2726;  Added the function to switch between different line-ending identifiers for received data
-
-&#x2726;  Added support for various encoding/decoding options
-
-&#x2726;  Added a feature to display the recommended force level by hovering on selected syringe to prevent from being damaged
-
-![iKSY6Q.png](https://i.328888.xyz/2023/04/30/iKSY6Q.png)
-
-&#x2726;  Add the 'logging' module for easy debugging and recording of program running status
-
-&#x2726;  Added path hints when saving custom methods
-
-![iPVshx.png](https://i.328888.xyz/2023/05/04/iPVshx.png)
-
-&#x2192; Implement real-time dynamic plotting of data
-
-
-
-# Week 5
-
-&#x2611; Merged the serial port reading and writing threads, so that the response identifier can be used as a sign for command sending
-
-&#x2611; To prevent UI freezing, deprecate the `time.sleep()` method and use `QtCore.QTimer()` instead
-
-&#x2726;  Added a feature of progress bar on status bar, which dynamically shows the current flow progress in percent
-
-<p align="center">
-  <img src="https://i.328888.xyz/2023/05/10/iQ1d1V.png">
-</p>
-
-&#x2726;  Implemented the functionality to graphically display the current flow rate and transported volume according to different running modes
-
-​	***Powered by: `matplotlib.backends.backend_qt5agg`***
-
-<p align="center">   <img src="https://i.328888.xyz/2023/05/10/iQ150d.png"> </p>
-
-&#x2726;  Added image interactivity and export features (thanks to matplotlib) 
-
-&#x2726;  Added image data export (*.txt)
-
-
-
-## Complete UI showcase
-
-<p align="center">   <img src="https://i.328888.xyz/2023/05/10/iQQkUX.png" alt="iQQkUX.png" border="0" /> </p>
-
-# Week 6
-
-&#x2611; Fixed all known bugs and implement the goals of the first stage
-
-* Port read and commands send according to different running status
-* En-/Decoding methods: `utf-8`, `ascii`
-* Diverse line ending identifiers: `No line feed`, `CR`, `LF`, `CR&LF`
-* Post-processing of returned data: dynamic display, progress bar
-* Tooltip for default force limit under consideration of safety
-* Theme switch -> as well as adapting and the styling of the plot area: **Powered by [PyQtDarkTheme](https://github.com/5yutan5/PyQtDarkTheme.git)**
-* Registration of resource data
-* etc.
-
-<img src="https://i.328888.xyz/2023/05/11/iq6ppE.png" alt="iq6ppE.png" border="0" />
+- [Overview](#overview)
+- [Key Features](#key-features)
+- [Hardware & Serial Interface](#hardware--serial-interface)
+- [Screenshots](#screenshots)
+- [Project Architecture](#project-architecture)
+- [Installation & Quickstart](#installation--quickstart)
+- [Packaging Standalone Executable](#packaging-standalone-executable)
+- [Testing](#testing)
+- [Author & Affiliation](#author--affiliation)
+- [License](#license)
+
+---
+
+## Overview
+
+The **Harvard Apparatus PHD Ultra** (70-3xxx series) represents the gold standard in high-accuracy laboratory syringe pumping, widely deployed in microfluidics, chemical synthesis, and rheological research. 
+
+This application provides an intuitive graphical user interface (GUI) to replace manual keypad configuration with automated, reproducible experiment workflows:
+- **Full Bidirectional Communication**: Send standard and advanced Harvard ASCII commands and parse asynchronous pump responses.
+- **Quick Mode Operation**: Direct Infusion, Withdrawal, and Dual-Phase Continuous Pumping (`INF/WD` and `WD/INF`).
+- **User-Defined Multi-Step Methods**: Build, inspect, import, and export complex pump sequences composed of Constant, Ramp, Stepped, Pulse, Bolus, Concentration, Gradient, and Autofill steps.
+- **Real-Time Data Visualization**: Embedded Matplotlib canvas plotting instantaneous flow rate and accumulated volume over elapsed time.
+- **Hardware Protection**: Integrated syringe catalog that automatically calculates permissible flow limits and recommends motor force levels to protect glass syringes and high-pressure tubing.
+
+---
+
+## Key Features
+
+1. **Quick Start Mode**
+   - Single-target infusion (`INF`) or withdrawal (`WD`).
+   - Automated sequential dual-phase cycles: Continuous Infusion then Withdrawal (`INF/WD`), or Continuous Withdrawal then Infusion (`WD/INF`).
+   - Dynamic unit conversions across $\text{pl/s}$, $\text{nl/s}$, $\mu\text{l/s}$, $\text{ml/s}$, $\text{nl/min}$, $\mu\text{l/min}$, $\text{ml/min}$, $\mu\text{l/hr}$, and $\text{ml/hr}$.
+
+2. **Custom Method Sequence Builder**
+   - Configure complex sequences with step types:
+     - `Constant`: Constant rate delivery to target volume or time.
+     - `Ramp`: Linear flow rate gradient ($r_{\text{start}} \to r_{\text{end}}$).
+     - `Stepped`: Stepwise multi-rate profiles.
+     - `Pulse`: Periodic intermittent dosing pulses.
+     - `Bolus`: High-precision micro-bolus injections.
+     - `Concentration`: Body-weight or volume-normalized dosage.
+     - `Gradient`: Multi-pump proportional mixing.
+     - `Autofill`: Continuous reciprocating refill and delivery.
+   - Native JSON export and import (`UserDefinedMethods/`) for experiment repeatability.
+
+3. **Real-time Telemetry & Dynamic Plotting**
+   - Embedded Qt Matplotlib canvas (`GraphicalMplCanvas`) rendering live flow rate and volume curves.
+   - Telemetry export to tab-delimited text (`.txt`) for post-processing in Origin, MATLAB, or Python.
+
+4. **Syringe Database & Safety Guardrails**
+   - Pre-loaded database covering major manufacturers: Hamilton (Gastight & Microliter), BD (Plastipak & Glass), Popper & Sons, Cadence Science, Air-Tite, HSW Norm-Ject, and Ranfac.
+   - Automated minimum and maximum flow rate calculation based on syringe inner diameter and lead-screw pitch.
+   - Force limit recommendation slider ($20\% - 100\%$) with warning tooltips to prevent mechanical damage to fragile syringes.
+
+5. **Robust Concurrency & Serial Engine**
+   - Asynchronous serial worker (`phd_ultra.core.serial_worker`) using `threading.RLock()` to prevent port contention and deadlocks.
+   - Pure Qt signal-slot communication keeping the GUI responsive at all times.
+   - Resilient automatic reconnection upon physical cable disconnection.
+
+6. **Modern Usability & System Integration**
+   - Multi-theme support: Default native theme, Light theme, and Dark theme powered by `pyqtdarktheme`.
+   - Global emergency hotkey (`Ctrl + G`) to immediately halt pump motion from any active application.
+   - System tray integration with background minimization and clean application teardown.
+
+---
+
+## Hardware & Serial Interface
+
+### Connection Specifications
+
+| Parameter | Default Value | Configurable Range |
+|---|---|---|
+| **Interface** | RS-232 (DB9) / USB-B (Virtual COM Port) | COM1 - COM256 |
+| **Baud Rate** | `9600` | 9600, 19200, 38400, 57600, 115200, Custom |
+| **Data Bits** | `8` | 7, 8 |
+| **Parity** | `None` (`N`) | None (`N`), Even (`E`), Odd (`O`), Mark (`M`), Space (`S`) |
+| **Stop Bits** | `1` | 1, 1.5, 2 |
+| **Flow Control**| `None` | None, Hardware RTS/CTS, Software XON/XOFF |
+| **Pump Address**| `00` | `00` to `99` (Multi-pump daisy chain) |
+| **Line Ending** | `\r\n` (CR + LF) | None, `<cr>`, `<lf>`, `<cr><lf>` |
+
+### RS-232 / USB Pinout Note
+- When using the native RS-232 9-pin D-sub port, ensure a straight-through serial cable or a standard FTDI USB-to-RS232 adapter is connected.
+- For daisy-chained setups, connect the master pump via RS-232/USB and use standard RJ-11 daisy chain cables between subsequent pump addresses.
+
+---
+
+## Screenshots
+
+| Main Window (Light Theme) | Main Window (Dark Theme) |
+| :---: | :---: |
+| ![Main Window](docs/images/gui_main_window.png) | ![Dark Theme](docs/images/gui_dark_theme.png) |
+
+| Serial Port Configuration | Custom Method Steps Selector |
+| :---: | :---: |
+| ![Port Setup](docs/images/port_setup_dialog.png) | ![Steps Selector](docs/images/steps_dialog.png) |
+
+---
+
+## Project Architecture
+
+```text
+PHD-Ultra-Series-Remote-Control-GUI-PyQt6-/
+├── assets/                     # Application icons and vector branding
+│   ├── icon.ico
+│   ├── icon.png
+│   └── logo.svg
+├── docs/                       # High-resolution documentation screenshots
+│   └── images/
+├── json/
+│   └── commands.json           # Harvard Apparatus command protocol & syringe catalog
+├── phd_ultra/                  # Modular Python package
+│   ├── config/                 # Safe directory path & logging initializers
+│   ├── core/                   # Thread-safe serial worker & command dispatching
+│   │   ├── commands.py
+│   │   └── serial_worker.py
+│   ├── database/               # Syringe dimension library & force calculations
+│   │   └── syringes.py
+│   ├── ui/                     # UI components, dialogs, canvas & theming
+│   │   ├── canvas.py
+│   │   ├── controllers.py
+│   │   ├── dialogs.py
+│   │   ├── theme.py
+│   │   └── tray.py
+│   └── utils/                  # Input validators & JSON method serialization
+│       ├── method_io.py
+│       └── validators.py
+├── tests/                      # Automated unit and offscreen GUI regression tests
+├── functions.py                # Backward-compatibility facade bridging legacy code
+├── main.py                     # Main application entry point
+├── main.spec                   # Standalone PyInstaller build specification
+├── pyproject.toml              # PEP 517/621 packaging metadata
+├── requirements.txt            # Python dependencies
+└── README.md
+```
+
+---
+
+## Installation & Quickstart
+
+### 1. Clone the Repository
+```bash
+git clone https://github.com/lu-xueyong/PHD-Ultra-Series-Remote-Control-GUI-PyQt6-.git
+cd PHD-Ultra-Series-Remote-Control-GUI-PyQt6-
+```
+
+### 2. Set Up a Virtual Environment (Recommended)
+```bash
+python -m venv .venv
+
+# On Windows (PowerShell):
+.venv\Scripts\Activate.ps1
+
+# On Windows (Command Prompt):
+.venv\Scripts\activate.bat
+```
+
+### 3. Install Dependencies
+```bash
+pip install --upgrade pip
+pip install -r requirements.txt
+```
+
+### 4. Run the Application
+```bash
+python main.py
+```
+
+---
+
+## Packaging Standalone Executable
+
+The project includes an optimized `main.spec` configuration for **PyInstaller** on Windows:
+
+```bash
+pip install pyinstaller
+pyinstaller main.spec
+```
+
+The compiled standalone executable will be generated in `dist/main.exe` with bundled Open Sans fonts, icons, stylesheets, and command databases.
+
+---
+
+## Testing
+
+Run the automated test suite covering command protocols, syringe catalog integrity, input validators, and offscreen GUI instantiation:
+
+```bash
+python -m unittest discover -s tests -v
+```
+
+Expected output:
+```text
+test_commands_json_exists_and_valid ... ok
+test_crucial_pump_commands_present ... ok
+test_canvas_export_components ... ok
+test_child_dialogs_instantiation ... ok
+test_main_window_instantiation ... ok
+test_get_syringe_dict_non_empty ... ok
+test_is_number_and_positive ... ok
+test_user_input_range_validate ... ok
+
+Ran 8 tests in 0.28s
+OK
+```
+
+---
+
+## Author & Affiliation
+
+**Dipl.-Ing. Xueyong Lu** (he/him)  
+Doctoral Researcher / Research Associate  
+Department: Fluid Dynamics of Resource Technology Processes  
+Institute of Fluid Dynamics  
+Helmholtz-Zentrum Dresden - Rossendorf (HZDR)  
+Bautzner Landstr. 400 | 01328 Dresden | Germany  
+**Email**: [x.lu@hzdr.de](mailto:x.lu@hzdr.de) | **Web**: [www.hzdr.de](https://www.hzdr.de/)
+
+---
+
+## License
+
+This project is licensed under the [MIT License](LICENSE) - see the LICENSE file for details.

@@ -1,16 +1,76 @@
-venvPyQt6/
+# Byte-compiled / optimized / DLL files
 __pycache__/
-font/
-image/
-.msc/
-UserDefinedMethods/
-dist/
+*.py[cod]
+*$py.class
+
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
 build/
-logs/
+develop-eggs/
 dist/
-.pylintrc/
-main.spec/
-PHD.spec/
-Release_v1.0.0.zip/
-RemoteControl_main_BackUp.ui/
-test_response.py/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+*.spec.bak
+
+# PyInstaller
+# Keep main.spec tracked, ignore build outputs
+*.manifest
+*.zip
+
+# Virtual environments
+venv/
+venv*/
+.venv/
+env/
+ENV/
+env.bak/
+venv.bak/
+
+# Logs and runtime databases
+*.log
+logs/
+settings/*.log
+
+# User export data and methods (optional local runtime data)
+# Note: Keep FlowData samples tracked if needed, ignore local runtime dumps
+UserDefinedMethods/
+
+# Temporary and backup files
+*.bak
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# IDE and Editor configurations
+.idea/
+.vscode/
+*.sublime-project
+*.sublime-workspace
+
+# Testing & Linting
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.py,cover
+.hypothesis/
+.pytest_cache/
