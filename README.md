@@ -113,7 +113,7 @@ This application provides an intuitive graphical user interface (GUI) to replace
 ## Project Architecture
 
 ```text
-PHD-Ultra-Series-Remote-Control-GUI-PyQt6-/
+harvard_phd_ultra_controller/
 ├── assets/                     # Application icons and vector branding
 │   ├── icon.ico
 │   ├── icon.png
@@ -153,8 +153,8 @@ PHD-Ultra-Series-Remote-Control-GUI-PyQt6-/
 
 ### 1. Clone the Repository
 ```bash
-git clone https://github.com/lu-xueyong/PHD-Ultra-Series-Remote-Control-GUI-PyQt6-.git
-cd PHD-Ultra-Series-Remote-Control-GUI-PyQt6-
+git clone https://github.com/xylu2024/harvard_phd_ultra_controller.git
+cd harvard_phd_ultra_controller
 ```
 
 ### 2. Set Up a Virtual Environment (Recommended)

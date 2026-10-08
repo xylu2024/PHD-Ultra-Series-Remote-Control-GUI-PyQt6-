@@ -41,8 +41,8 @@ dependencies = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/xylu2024/PHD-Ultra-Series-Remote-Control-GUI-PyQt6-"
-Repository = "https://github.com/xylu2024/PHD-Ultra-Series-Remote-Control-GUI-PyQt6-"
+Homepage = "https://github.com/xylu2024/harvard_phd_ultra_controller"
+Repository = "https://github.com/xylu2024/harvard_phd_ultra_controller"
 
 [project.scripts]
 phd-ultra-gui = "main:main"
